@@ -15,9 +15,6 @@ provider "google" {
 
 resource "google_compute_network" "vm-network" {
   name = "terraform-vm-network"
-  lifecycle {
-    create_before_destroy = true
-  }
 }
 
 resource "google_compute_subnetwork" "vm-subnet" {
@@ -25,9 +22,6 @@ resource "google_compute_subnetwork" "vm-subnet" {
   ip_cidr_range = "10.0.1.0/24"
   network       = google_compute_network.vm-network.name
   region        = var.REGION
-  lifecycle {
-    create_before_destroy = true
-  }
 }
 
 resource "google_compute_instance" "vm-instance" {
@@ -46,7 +40,7 @@ resource "google_compute_instance" "vm-instance" {
   }
   network_interface {
     network_ip = "10.0.1.11"
-    subnetwork = "terraform-subnet"
+    subnetwork = google_compute_subnetwork.vm-subnet.name
     access_config {}
   }
 }
