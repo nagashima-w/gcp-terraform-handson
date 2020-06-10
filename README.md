@@ -16,8 +16,8 @@ TerraformでGCPを操作するためのちょっとしたハンズオンのリ�
 
 ## コンテンツ
 
-0. 事前準備
-1. とりあえずTerraformを書いてデプロイしてみる
-2. VMインスタンスを1台だけ構築してみる
-3. 複数のVMインスタンスとロードバランサーを構築してみる
-4. Cloud Runをデプロイしてみる
+0. [事前準備](preparation/README.md)
+1. [とりあえずTerraformを書いてデプロイしてみる](minimal/README.md)
+2. [VMインスタンスを1台だけ構築してみる](vm/README.md)
+3. [Cloud Runをデプロイしてみる](cloud-run/README.md)
+4. [TerraformのTips集](tips/README.md)
