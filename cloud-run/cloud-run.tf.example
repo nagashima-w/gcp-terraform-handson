@@ -6,6 +6,7 @@ variable "CREDENTIAL" {}
 variable "PROJECT" {}
 variable "REGION" {}
 variable "ZONE" {}
+variable "IMAGE" {}
 
 provider "google" {
   credentials = file(var.CREDENTIAL)
@@ -14,15 +15,20 @@ provider "google" {
 }
 
 resource "google_cloud_run_service" "cloud-run" {
-  name     = "nginx-cloud-run"
+  name     = "cloud-run"
   location = var.REGION
   template {
     spec {
       containers {
-        image = "nginx:latest"
+        image = var.IMAGE
       }
     }
   }
+  metadata {
+    labels = {
+      hoge = "foo"
+      huga = "bar"
+    }
   traffic {
     percent         = 100
     latest_revision = true
@@ -43,8 +49,4 @@ resource "google_cloud_run_service_iam_policy" "noauth" {
   project     = google_cloud_run_service.cloud-run.project
   service     = google_cloud_run_service.cloud-run.name
   policy_data = data.google_iam_policy.noauth.policy_data
-}
-
-output "url" {
-  value = "${google_cloud_run_service.cloud-run.*.url}"
 }
