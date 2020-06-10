@@ -26,6 +26,7 @@ Cloud Runの説明の中でKnativeという名前が出てきましたので、�
 - 今回はアクセス制限をしない形で、Nginxコンテナをデプロイしてみてください
 - 公式のリファレンスは[こちら](https://www.terraform.io/docs/providers/google/r/cloud_run_service.html)です
 - 今回も記述例は`cloud-run.tf.example`ファイルにあります
+  - **課金管理のため、compute instanceのラベルは必ず付け替えてください**
 
 ### デプロイ
 

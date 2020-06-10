@@ -68,6 +68,7 @@ $ cp ../minimal/terraform.tfvars ./
   - `Optional`とあるものも、必要に応じて記述しましょう
 - では、公式のリファレンスを見ながら書いてみましょう
   - 記述例は`vn.tf.example`にあります
+    - **課金管理のため、compute instanceのラベルは必ず付け替えてください**
 
 ### デプロイ
 
