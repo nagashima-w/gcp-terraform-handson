@@ -2,5 +2,4 @@
 *.tfstate
 *.tfstate.*
 *.tfvars
-**/remote-state.tf
 
